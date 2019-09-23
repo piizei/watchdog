@@ -8,18 +8,23 @@ Script also sends alert emails.
 
 ## Installing
 
-Tested with MacOs & Ubuntu:latest only.
+Tested with MacOs & Ubuntu 18.04 only.
 
 - `git clone https://github.com/piizei/watchdog`
 - `cd watchdog`
 - `pip install -e .`
 
+Note: In some cases you might need to replace `pip` with `pip3` depending on your python setup.
 
+Copy the template.ini into any directory you wish to run the watchdog from. Rename it to watchdog.ini.
+for example `cp template.ini ~/watchdog.ini`. Edit your settings into the watchdog.ini. 
+Then start watchdog in the same directory (with command `watchdog`).
+Monitoring should now be enabled
 
 ## Usage
 
 ## Todo
-- Stopping the watchdog
+- Stopping the watchdog (to stop now, look into watchdog.pid for a pid and use kill)
 - Nice email formatting
 - Improve testing (and testing setup)
 - For any other ideas, Pull Request accepted
