@@ -1,0 +1,21 @@
+#!/usr/bin/env python
+
+from src.arg_parser import bootstrap_argparse
+from src.config_setup import bootstrap_config
+from src.daemon import start_daemon
+
+config = {'config_file': './watchdog.ini',
+          'watch_interval_seconds': 30,
+          'restart_interval_seconds': 15,
+          'restart_attempts': 4,
+          'process_name': None,
+          'SMTP_SSL_port': 465,
+          'smtp_password': None,
+          'smtp_server': None,
+          'smtp_user': None,
+          'restart_command': None,
+          'alert_recipient': None,
+          'log_file': '/var/log/watchdog.log'}
+bootstrap_argparse(config)
+bootstrap_config(config)
+start_daemon(config, 'watchdog.pid', config['log_file'])
